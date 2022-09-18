@@ -19,7 +19,7 @@ router.get('/hosts', (req, res)=>{
     })
 });
 
-router.post('/score', (req,res)=>{
+router.post('/scores', (req,res)=>{
   const { taste, presentation } = req.body;
   Score.create({ taste, presentation })
     .then((result)=>{

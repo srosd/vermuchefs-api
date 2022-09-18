@@ -5,6 +5,7 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
 const favicon       = require('serve-favicon');
+const cors          = require('cors');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -31,10 +32,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon-parra.ico')));
 
 //CORS middleware
 
-// app.use(cors({
-//   credentials: true,
-//   origin: ["https://veggieplanet.netlify.app"]
-// }));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
